@@ -1,7 +1,27 @@
-import Card from '@/components/Card'
 import Head from 'next/head'
+import { BsWhatsapp } from 'react-icons/bs'
+import { TiSocialTwitter } from 'react-icons/ti'
+import {
+  WhatsappShareButton,
+  TwitterShareButton,
+} from 'next-share';
+import { FaQuoteLeft, FaWhatsappSquare, FaTwitterSquare } from 'react-icons/fa'
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+
+  const apiLink = "https://type.fit/api/quotes"
+  const [randomColor, setRandomColor] = useState("green")
+
+  const randomColorsArr = ["red", "${randomColor}", "green", "blue", "gray", "pink", "orange", "teal", "cyan", "purple", "violet", "yellow"]
+
+  let colorIndex = Math.floor(Math.random() * (randomColorsArr.length + 1))
+  useEffect(() => {
+    setRandomColor(randomColorsArr[colorIndex])
+  }, [])
+  console.log("bg-" + randomColor + "-800", randomColorsArr.length)
+
+
   return (
     <>
       <Head>
@@ -11,7 +31,48 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Card />
+      <main className={`${"bg-" + randomColor + "-800"} h-screen text items-center flex`}>
+        <div className={`mx-auto w-[650px] px-12 py-8 ${"text-" + randomColor + "-800"} bg-white rounded-tl-3xl rounded-br-3xl shadow-lg shadow-${randomColor}-900 font-mono`}>
+          <div className='flex items-center'>
+
+            <div className='text-3xl flex'>
+              <span>
+                <FaQuoteLeft />
+              </span>
+              <span className='ml-4 '>
+                People often say that motivation doesn’t last. Well, neither does bathing. That’s why we recommend it daily.
+              </span>
+            </div>
+          </div>
+
+          <div className='text-end mt-2'>
+            <span className='font-light text-lg italic border-b-2 w-fit'>
+              - Zig Ziglar
+            </span>
+          </div>
+
+          <div className='flex justify-between mt-6'>
+            <div >
+              <WhatsappShareButton
+                url={'https://blog-like-star.vercel.app'} >
+                <FaWhatsappSquare className='text-5xl text-${randomColor}-800 mr-1 hover:scale-125 ease-in-out duration-300' />
+              </WhatsappShareButton>
+              <TwitterShareButton
+                url={'https://blog-like-star.vercel.app'} >
+                <FaTwitterSquare className='text-5xl text-${randomColor}-800  hover:scale-125 ease-in-out duration-300' />
+              </TwitterShareButton>
+            </div>
+            <div>
+              <button className='bg-blue-800 text-white px-3 py-2 rounded-md font-semibold hover:scale-125 ease-in-out duration-300'>
+                New Quote
+              </button>
+            </div>
+          </div>
+
+
+
+        </div>
+      </main>
     </>
   )
 }
