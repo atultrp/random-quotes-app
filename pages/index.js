@@ -70,7 +70,6 @@ export default function Home() {
     fetch(apiLink)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         setQuoteData(data)
       })
   }, [])
@@ -99,14 +98,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={` ${randomColor[0]} h-screen text items-center flex`}>
-        <div className={`mx-auto w-[650px] px-12 py-8 ${randomColor[1]} bg-white rounded-tl-3xl rounded-br-3xl shadow-lg ${randomColor[3]} font-mono`}>
+      <main className={` ${randomColor[0]} h-screen items-center flex`}>
+        <div className={`my-10 md:my-0 mx-8 md:mx-auto w-[650px] px-6 py-4 md:px-12 md:py-8 ${randomColor[1]} bg-white rounded-tl-3xl rounded-br-3xl shadow-lg ${randomColor[3]} font-mono`}>
           <div className='flex items-center'>
-            <div className='text-3xl flex'>
+            <div className='text-2xl md:text-3xl flex'>
               <span>
                 <FaQuoteLeft />
               </span>
-              <span className='ml-4 '>
+              <span className='ml-3 md:ml-4'>
                 {quote?.text || "People often say that motivation doesn't last. Well, neither does bathing. That's why we recommend it daily."}
               </span>
             </div>
