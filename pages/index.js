@@ -37,7 +37,11 @@ export default function Home() {
     }
   }
 
-  const shareQuoteDummy = "People often say that motivation doesn't last. Well, neither does bathing. That's why we recommend it daily. - Zig Ziglar from https://blog-like-star.vercel.app"
+  useEffect(() => {
+    setShareQuote(`${quote?.text} - ${quote?.author} from https://random-quotes-app-atultrp.vercel.app/`)
+  }, [quote])
+
+  const shareQuoteDummy = "People often say that motivation doesn't last. Well, neither does bathing. That's why we recommend it daily. - Zig Ziglar from https://random-quotes-app-atultrp.vercel.app/"
 
   return (
     <>
