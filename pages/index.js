@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import { BsWhatsapp } from 'react-icons/bs'
-import { TiSocialTwitter } from 'react-icons/ti'
 import {
   WhatsappShareButton,
   TwitterShareButton,
@@ -67,6 +65,7 @@ export default function Home() {
     }
   ]
 
+  // Fetching data from api
   useEffect(() => {
     fetch(apiLink)
       .then(response => response.json())
@@ -76,6 +75,7 @@ export default function Home() {
       })
   }, [])
 
+  // Handling new quote
   const handleNewQuote = () => {
     setRandomColor(randomColorSet[Math.floor(Math.random() * (randomColorSet.length))].value)
 
@@ -85,6 +85,7 @@ export default function Home() {
     }
   }
 
+  // Handling share quote
   useEffect(() => {
     setShareQuote(`${quote?.text} - ${quote?.author} from https://random-quotes-app-atultrp.vercel.app/`)
   }, [quote])
@@ -138,9 +139,6 @@ export default function Home() {
               </button>
             </div>
           </div>
-
-
-
         </div>
       </main>
     </>
