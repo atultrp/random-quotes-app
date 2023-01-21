@@ -64,7 +64,6 @@ export default function Home() {
       "value": ["bg-yellow-800", "text-yellow-800", "border-yellow-800", "shadow-yellow-900"]
     }
   ]
-
   // Fetching data from api
   useEffect(() => {
     fetch(apiLink)
