@@ -7,7 +7,7 @@ import { FaQuoteLeft, FaWhatsappSquare, FaTwitterSquare } from 'react-icons/fa'
 import { useEffect, useState } from 'react';
 
 export default function Home() {
-
+  // Api link
   const apiLink = "https://type.fit/api/quotes"
   const [randomColor, setRandomColor] = useState(["bg-rose-800", "text-rose-800", "border-rose-800", "shadow-rose-900"])
   const [quoteData, setQuoteData] = useState()
@@ -64,6 +64,7 @@ export default function Home() {
       "value": ["bg-yellow-800", "text-yellow-800", "border-yellow-800", "shadow-yellow-900"]
     }
   ]
+
   // Fetching data from api
   useEffect(() => {
     fetch(apiLink)
